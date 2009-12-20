@@ -1,0 +1,14 @@
+.window.ui-draggable-dragging {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+}
+
+.window_full.ui-draggable-dragging {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+}
+
+#bar_bottom {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+}
