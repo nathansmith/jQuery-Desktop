@@ -168,8 +168,13 @@ var JQD = (function($) {
 
 			// Make top menus active.
 			$('a.menu_trigger').mousedown(function() {
-				JQD.clear_active();
-				$(this).addClass('active').next('ul.menu').show();
+				if ($(this).next('ul.menu').is(':hidden')) {
+					JQD.clear_active();
+					$(this).addClass('active').next('ul.menu').show();
+				}
+				else {
+					JQD.clear_active();
+				}
 			}).mouseenter(function() {
 				// Transfer focus, if already open.
 				if ($('ul.menu').is(':visible')) {
