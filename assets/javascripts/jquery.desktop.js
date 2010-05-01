@@ -139,6 +139,10 @@ var JQD = (function($) {
 		// Initialize the desktop.
 		//
 		init_desktop: function() {
+			if (window.location !== window.top.location) {
+				window.top.location = window.location;
+			}
+
 			// Start clock.
 			JQD.init_clock();
 
