@@ -108,7 +108,7 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Relative or remote links?
-				$('a').click(function() {
+				$('a').live('click', function() {
 					var url = $(this).attr('href');
 					this.blur();
 
@@ -122,7 +122,7 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Make top menus active.
-				$('a.menu_trigger').mousedown(function() {
+				$('a.menu_trigger').live('mousedown', function() {
 					if ($(this).next('ul.menu').is(':hidden')) {
 						JQD.util.clear_active();
 						$(this).addClass('active').next('ul.menu').show();
@@ -130,7 +130,7 @@ var JQD = (function($, window, undefined) {
 					else {
 						JQD.util.clear_active();
 					}
-				}).mouseenter(function() {
+				}).live('mouseenter', function() {
 					// Transfer focus, if already open.
 					if ($('ul.menu').is(':visible')) {
 						JQD.util.clear_active();
@@ -139,11 +139,11 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Desktop icons.
-				$('a.icon').mousedown(function() {
+				$('a.icon').live('mousedown', function() {
 					// Highlight the icon.
 					JQD.util.clear_active();
 					$(this).addClass('active');
-				}).dblclick(function() {
+				}).live('dblclick', function() {
 					// Get the link's target.
 					var x = $($(this).attr('href'));
 					var y = $(x.find('a').attr('href'));
@@ -154,6 +154,7 @@ var JQD = (function($, window, undefined) {
 					}
 
 					// Bring window to front.
+					JQD.util.clear_active();
 					JQD.util.window_flat();
 					y.addClass('window_stack').show();
 				}).draggable({
@@ -162,7 +163,7 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Taskbar buttons.
-				$('#dock a').live('click', function() {
+				$('#dock a').live('mouseup', function() {
 					// Get the link's target.
 					var x = $($(this).attr('href'));
 
@@ -182,13 +183,14 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Make windows movable.
-				$('div.window').mousedown(function() {
+				$('div.window').live('mousedown', function() {
 					// Bring window to front.
 					JQD.util.window_flat();
 					$(this).addClass('window_stack');
 				}).draggable({
 					// Confine to desktop.
 					// Movable via top bar only.
+					cancel: 'a',
 					containment: 'parent',
 					handle: 'div.window_top'
 				}).resizable({
@@ -197,11 +199,11 @@ var JQD = (function($, window, undefined) {
 					minHeight: 200
 
 				// Double-click top bar to resize, ala Windows OS.
-				}).find('div.window_top').dblclick(function() {
+				}).find('div.window_top').live('dblclick', function() {
 					JQD.util.window_resize(this);
 
 				// Double click top bar icon to close, ala Windows OS.
-				}).find('img').dblclick(function() {
+				}).find('img').live('dblclick', function() {
 					// Traverse to the close button, and hide its taskbar button.
 					$($(this).closest('div.window_top').find('a.window_close').attr('href')).hide('fast');
 
@@ -212,31 +214,24 @@ var JQD = (function($, window, undefined) {
 					return false;
 				});
 
-				// Get action buttons for each window.
-				$('a.window_min, a.window_resize, a.window_close').mousedown(function() {
-					JQD.util.clear_active();
-					// Stop propagation to window's top bar.
-					return false;
-				});
-
 				// Minimize the window.
-				$('a.window_min').click(function() {
+				$('a.window_min').live('mouseup', function() {
 					$(this).closest('div.window').hide();
 				});
 
 				// Maximize or restore the window.
-				$('a.window_resize').click(function() {
+				$('a.window_resize').live('mouseup', function() {
 					JQD.util.window_resize(this);
 				});
 
 				// Close the window.
-				$('a.window_close').click(function() {
+				$('a.window_close').live('mouseup', function() {
 					$(this).closest('div.window').hide();
 					$($(this).attr('href')).hide('fast');
 				});
 
 				// Show desktop button, ala Windows OS.
-				$('#show_desktop').click(function() {
+				$('#show_desktop').live('mouseup', function() {
 					// If any windows are visible, hide all.
 					if ($('div.window:visible').length) {
 						$('div.window').hide();
@@ -252,7 +247,7 @@ var JQD = (function($, window, undefined) {
 				$('table.data').each(function() {
 					// Add zebra striping, ala Mac OS X.
 					$(this).find('tr:even td').addClass('zebra');
-				}).find('tr').live('click', function() {
+				}).find('tr').live('mousedown', function() {
 					// Highlight row, ala Mac OS X.
 					$(this).closest('tr').addClass('active');
 				});
