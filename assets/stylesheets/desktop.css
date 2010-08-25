@@ -69,7 +69,7 @@ div.ui-resizable-handle {
 ----------------------------------------------------------------------------------------------------*/
 
 .icon {
-	background: url(../images/gui/trans_white.png) no-repeat -999px -999px;
+	background: url(../images/gui/trans_white.png) no-repeat -99999px -99999px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -89,7 +89,7 @@ div.ui-resizable-handle {
 }
 
 .icon img {
-	background: url(../images/gui/trans_black.png) no-repeat -999px -999px;
+	background: url(../images/gui/trans_black.png) no-repeat -99999px -99999px;
 	display: block;
 	margin: 0 auto 5px;
 	width: 32px;
@@ -297,7 +297,7 @@ div.ui-resizable-handle {
 	bottom: -1px;
 }
 
-/* `Table >> Data #3875d7
+/* `Table >> Data
 ----------------------------------------------------------------------------------------------------*/
 
 table.data {
@@ -394,7 +394,7 @@ th.shrink {
 #bar_top li a {
 	background-image: url(../images/gui/bar_top_link.png);
 	background-repeat: no-repeat;
-	background-position: -999px -999px;
+	background-position: -99999px -99999px;
 	color: #000;
 	overflow: hidden;
 	height: 25px;
@@ -436,7 +436,7 @@ th.shrink {
 #bar_top ul.menu a {
 	background: #fff;
 	border-bottom: 1px solid #eee;
-	min-width: 200px;
+	min-width: 180px;
 }
 
 #bar_top ul.menu li:last-child a {
