@@ -108,16 +108,15 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Relative or remote links?
-				$('a').live('click', function() {
+				$('a').live('click', function(ev) {
 					var url = $(this).attr('href');
 					this.blur();
 
 					if (url.match(/^#/)) {
-						return false;
+						ev.preventDefault();
 					}
 					else if (url.match('://')) {
 						$(this).attr('target', '_blank');
-						return true;
 					}
 				});
 
@@ -163,7 +162,7 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Taskbar buttons.
-				$('#dock a').live('mouseup', function() {
+				$('#dock a').live('click', function() {
 					// Get the link's target.
 					var x = $($(this).attr('href'));
 
@@ -215,23 +214,23 @@ var JQD = (function($, window, undefined) {
 				});
 
 				// Minimize the window.
-				$('a.window_min').live('mouseup', function() {
+				$('a.window_min').live('click', function() {
 					$(this).closest('div.window').hide();
 				});
 
 				// Maximize or restore the window.
-				$('a.window_resize').live('mouseup', function() {
+				$('a.window_resize').live('click', function() {
 					JQD.util.window_resize(this);
 				});
 
 				// Close the window.
-				$('a.window_close').live('mouseup', function() {
+				$('a.window_close').live('click', function() {
 					$(this).closest('div.window').hide();
 					$($(this).attr('href')).hide('fast');
 				});
 
 				// Show desktop button, ala Windows OS.
-				$('#show_desktop').live('mouseup', function() {
+				$('#show_desktop').live('click', function() {
 					// If any windows are visible, hide all.
 					if ($('div.window:visible').length) {
 						$('div.window').hide();
