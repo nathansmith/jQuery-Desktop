@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 //
 // Namespace - Module Pattern.
 //
-var JQD = (function($) {
+var JQD = (function($, window, undefined) {
 	return {
 		go: function() {
 			for (var i in JQD.init) {
@@ -321,4 +321,4 @@ var JQD = (function($) {
 		}
 	};
 // Pass in jQuery.
-})(jQuery);
+})(jQuery, this);
