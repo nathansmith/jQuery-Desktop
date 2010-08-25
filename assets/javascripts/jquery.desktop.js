@@ -144,18 +144,19 @@ var JQD = (function($, window, undefined) {
 					$(this).addClass('active');
 				}).live('dblclick', function() {
 					// Get the link's target.
-					var x = $($(this).attr('href'));
-					var y = $(x.find('a').attr('href'));
+					var x = $(this).attr('href');
+					var y = $(x).find('a').attr('href');
 
 					// Show the taskbar button.
-					if (x.is(':hidden')) {
-						x.remove().appendTo('#dock').end().show('fast');
+					if ($(x).not(':visible')) {
+						$(x).remove().appendTo('#dock');
+						$(x).show('fast');
 					}
 
 					// Bring window to front.
 					JQD.util.clear_active();
 					JQD.util.window_flat();
-					y.addClass('window_stack').show();
+					$(y).addClass('window_stack').show();
 				}).draggable({
 					revert: true,
 					containment: 'parent'
@@ -245,7 +246,7 @@ var JQD = (function($, window, undefined) {
 
 				$('table.data').each(function() {
 					// Add zebra striping, ala Mac OS X.
-					$(this).find('tr:even td').addClass('zebra');
+					$(this).find('tbody tr:odd').addClass('zebra');
 				}).find('tr').live('mousedown', function() {
 					// Highlight row, ala Mac OS X.
 					$(this).closest('tr').addClass('active');

@@ -327,11 +327,11 @@ table.data img {
 	display: block;
 }
 
-table.data td.zebra {
+table.data tbody tr:nth-child(even) {
 	background: #def;
 }
 
-table.data tr.active td {
+table.data tbody tr.active td {
 	background: #06c url(../images/gui/bar_top_link.png) repeat-x;
 	color: #fff;
 }
@@ -458,11 +458,11 @@ th.shrink {
 #bar_bottom li {
 	display: none;
 	margin: 0 0 10px 5px;
+	min-width: 150px;
 }
 
 #bar_bottom li a {
 	background: #333;
-	min-width: 150px;
 }
 
 #bar_bottom a {
