@@ -101,7 +101,8 @@ var JQD = (function($, window, undefined) {
 				$(document).mousedown(function(ev) {
 					if (!$(ev.target).closest('a').length) {
 						JQD.util.clear_active();
-						return false;
+						ev.preventDefault();
+						ev.stopPropagation();
 					}
 				}).bind('contextmenu', function() {
 					return false;
@@ -114,6 +115,7 @@ var JQD = (function($, window, undefined) {
 
 					if (url.match(/^#/)) {
 						ev.preventDefault();
+						ev.stopPropagation();
 					}
 					else if (url.match('://')) {
 						$(this).attr('target', '_blank');
@@ -176,10 +178,6 @@ var JQD = (function($, window, undefined) {
 						JQD.util.window_flat();
 						x.show().addClass('window_stack');
 					}
-
-					// Stop the live() click.
-					this.blur();
-					return false;
 				});
 
 				// Make windows movable.

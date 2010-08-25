@@ -26,23 +26,37 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>19</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>197</integer>
+				<integer>109</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>188</integer>
+			<integer>97</integer>
 		</dict>
 		<key>assets/stylesheets/desktop.css</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>line</key>
 				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>assets/stylesheets/ie.css</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -54,14 +68,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>6</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>1047</integer>
+				<integer>1051</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>1006</integer>
+			<integer>1032</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -69,10 +83,11 @@
 		<string>assets/javascripts/jquery.desktop.js</string>
 		<string>index.html</string>
 		<string>assets/stylesheets/desktop.css</string>
+		<string>assets/stylesheets/ie.css</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{1440, 30}, {1470, 1050}}</string>
+	<string>{{56, 0}, {1174, 878}}</string>
 </dict>
 </plist>

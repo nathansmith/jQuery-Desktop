@@ -327,7 +327,7 @@ table.data img {
 	display: block;
 }
 
-table.data tbody tr:nth-child(even) {
+table.data tbody tr:nth-child(even) td {
 	background: #def;
 }
 
@@ -515,4 +515,11 @@ th.shrink {
 	left: 0;
 	right: 0;
 	bottom: 41px;
+}
+
+#desktop,
+#wallpaper,
+#bar_top,
+#bar_bottom {
+	min-width: 700px;
 }

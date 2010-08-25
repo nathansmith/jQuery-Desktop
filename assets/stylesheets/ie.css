@@ -12,3 +12,15 @@
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
 }
+
+table.data tbody tr td {
+	border-top: 1px solid #eee;
+}
+
+table.data tbody tr:first-child td {
+	border-top-width: 0;
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
+}
