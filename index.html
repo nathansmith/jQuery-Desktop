@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="description" content="JavaScript desktop environment built with jQuery." />
 <title>jQuery Desktop</title>
+<!--[if lt IE 7]>
+<script>
+window.top.location = 'http://desktop.sonspring.com/ie.html';
+</script>
+<![endif]-->
 <link rel="stylesheet" href="assets/stylesheets/html.css" />
 <link rel="stylesheet" href="assets/stylesheets/desktop.css" />
-<!--[if gte IE 7]>
+<!--[if lt IE 9]>
 <link rel="stylesheet" href="assets/stylesheets/ie.css" />
 <![endif]-->
 </head>
@@ -1036,15 +1042,12 @@
 			</a>
 		</li>
 	</ul>
-	<a class="float_right" href="http://www.firehost.com/" title="Secure Hosting">
+	<a class="float_right" href="http://www.firehost.com/?ref=spon_nsmith_desktop-sonspring" title="Secure Hosting">
 		<img src="assets/images/misc/firehost.png" />
 	</a>
 </div>
 <script src="assets/javascripts/jquery.package.js"></script>
 <script src="assets/javascripts/jquery.desktop.js"></script>
-<script>
-JQD.init_desktop();
-</script>
 <script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-166674-8']);
