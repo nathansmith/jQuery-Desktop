@@ -15,11 +15,18 @@ window.top.location = 'http://desktop.sonspring.com/ie.html';
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="assets/stylesheets/ie.css" />
 <![endif]-->
+</head>
+<body>
+<div class="abs" id="wrapper">
+	<a href="#" id="ajax_load_trigger" style="color:#fff;float:left;padding:20px;text-decoration:underline;cursor:pointer">
+		Click to load page content via Ajax
+	</a>
+</div>
 <script src="assets/javascripts/jquery.js"></script>
 <script src="assets/javascripts/jquery.ui.js"></script>
 <script src="assets/javascripts/jquery.desktop.js"></script>
 <script>
-jQuery(document).ready(function($) {
+(function($) {
 	$('#ajax_load_trigger').click(function() {
 		$(this).unbind();
 		$('#wrapper').load('index.html #wrapper', function() {
@@ -28,7 +35,7 @@ jQuery(document).ready(function($) {
 		});
 		return false;
 	});
-});
+})(jQuery);
 </script>
 <script>
 var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
@@ -41,12 +48,5 @@ var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
 	s.parentNode.insertBefore(g, s);
 })(document, 'script');
 </script>
-</head>
-<body>
-<div class="abs" id="wrapper">
-	<a href="#" id="ajax_load_trigger" style="color:#fff;float:left;padding:20px;text-decoration:underline;cursor:pointer">
-		Click to load page content via Ajax
-	</a>
-</div>
 </body>
 </html>
