@@ -157,7 +157,6 @@ var JQD = (function($, window, undefined) {
 					}
 
 					// Bring window to front.
-					JQD.util.clear_active();
 					JQD.util.window_flat();
 					$(y).addClass('window_stack').show();
 				}).live('mouseenter', function() {
