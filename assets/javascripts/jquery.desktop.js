@@ -159,9 +159,11 @@ var JQD = (function($, window, undefined) {
 					JQD.util.clear_active();
 					JQD.util.window_flat();
 					$(y).addClass('window_stack').show();
-				}).draggable({
-					revert: true,
-					containment: 'parent'
+				}).live('mouseenter', function() {
+					$(this).draggable({
+						revert: true,
+						containment: 'parent'
+					});
 				});
 
 				// Taskbar buttons.
@@ -185,12 +187,14 @@ var JQD = (function($, window, undefined) {
 					// Bring window to front.
 					JQD.util.window_flat();
 					$(this).addClass('window_stack');
-				}).draggable({
-					// Confine to desktop.
-					// Movable via top bar only.
-					cancel: 'a',
-					containment: 'parent',
-					handle: 'div.window_top'
+				}).live('mouseenter', function() {
+					$(this).draggable({
+						// Confine to desktop.
+						// Movable via top bar only.
+						cancel: 'a',
+						containment: 'parent',
+						handle: 'div.window_top'
+					});
 				}).resizable({
 					containment: 'parent',
 					minWidth: 400,
