@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 // Namespace - Module Pattern.
 //
 var JQD = (function($, window, undefined) {
-	// Expose innards of JQD.	
+	// Expose innards of JQD.
 	return {
 		go: function() {
 			for (var i in JQD.init) {
