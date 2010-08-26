@@ -151,7 +151,7 @@ var JQD = (function($, window, undefined) {
 					var y = $(x).find('a').attr('href');
 
 					// Show the taskbar button.
-					if ($(x).not(':visible')) {
+					if ($(x).is(':hidden')) {
 						$(x).remove().appendTo('#dock');
 						$(x).show('fast');
 					}
