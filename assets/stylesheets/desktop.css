@@ -497,7 +497,7 @@ th.shrink {
 	padding: 4px 0 0;
 }
 
-/* `Wallpaper + Desktop
+/* `Wrapper + Wallpaper + Desktop
 ----------------------------------------------------------------------------------------------------*/
 
 #wallpaper {
@@ -517,9 +517,11 @@ th.shrink {
 	bottom: 41px;
 }
 
-#desktop,
-#wallpaper,
-#bar_top,
-#bar_bottom {
+#wrapper {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	min-width: 700px;
+	min-height: 500px;
 }

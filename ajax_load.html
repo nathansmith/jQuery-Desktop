@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge; chrome=1" />
+<meta name="description" content="JavaScript desktop environment built with jQuery." />
+<title>jQuery Desktop</title>
+<!--[if lt IE 7]>
+<script>
+window.top.location = 'http://desktop.sonspring.com/ie.html';
+</script>
+<![endif]-->
+<link rel="stylesheet" href="assets/stylesheets/html.css" />
+<link rel="stylesheet" href="assets/stylesheets/desktop.css" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="assets/stylesheets/ie.css" />
+<![endif]-->
+<script src="assets/javascripts/jquery.js"></script>
+<script src="assets/javascripts/jquery.ui.js"></script>
+<script src="assets/javascripts/jquery.desktop.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	$('#ajax_load_trigger').click(function() {
+		$(this).unbind();
+		$('#wrapper').load('index.html #wrapper', function() {
+			JQD.init.clock();
+			JQD.init.wallpaper();
+		});
+		return false;
+	});
+});
+</script>
+<script>
+var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
+
+(function(d, t) {
+	var g = d.createElement(t),
+	s = d.getElementsByTagName(t)[0];
+	g.async = true;
+	g.src = '//www.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g, s);
+})(document, 'script');
+</script>
+</head>
+<body>
+<div class="abs" id="wrapper">
+	<a href="#" id="ajax_load_trigger" style="color:#fff;float:left;padding:20px;text-decoration:underline;cursor:pointer">
+		Click to load page content via Ajax
+	</a>
+</div>
+</body>
+</html>

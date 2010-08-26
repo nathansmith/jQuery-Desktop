@@ -26,6 +26,10 @@ var JQD = (function($, window, undefined) {
 			// Initialize the clock.
 			//
 			clock: function() {
+				if (!$('#clock').length) {
+					return;
+				}
+
 				// Date variables.
 				var date_obj = new Date();
 				var hour = date_obj.getHours();
@@ -253,9 +257,12 @@ var JQD = (function($, window, undefined) {
 					// Highlight row, ala Mac OS X.
 					$(this).closest('tr').addClass('active');
 				});
-
+			},
+			wallpaper: function() {
 				// Add wallpaper last, to prevent blocking.
-				$('body').prepend('<img id="wallpaper" class="abs" src="assets/images/misc/wallpaper.jpg" />');
+				if ($('#desktop').length) {
+					$('body').prepend('<img id="wallpaper" class="abs" src="assets/images/misc/wallpaper.jpg" />');
+				}
 			}
 		},
 		util: {
