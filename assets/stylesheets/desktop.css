@@ -314,13 +314,14 @@ table.data td {
 table.data th {
 	background: #fff url(../images/gui/bar_top.png) repeat-x left bottom;
 	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
 	font-weight: bold;
 	text-shadow: #fff 0 1px 1px;
 	white-space: nowrap;
 }
 
 table.data th:first-child {
-	border: 0;
+	border-left: 0;
 }
 
 table.data img {
