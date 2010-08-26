@@ -9,6 +9,7 @@ jQuery(document).ready(function() {
 // Namespace - Module Pattern.
 //
 var JQD = (function($, window, undefined) {
+	// Expose innards of JQD.	
 	return {
 		go: function() {
 			for (var i in JQD.init) {
@@ -160,7 +161,7 @@ var JQD = (function($, window, undefined) {
 					JQD.util.window_flat();
 					$(y).addClass('window_stack').show();
 				}).live('mouseenter', function() {
-					$(this).draggable({
+					$(this).die('mouseenter').draggable({
 						revert: true,
 						containment: 'parent'
 					});
@@ -188,7 +189,7 @@ var JQD = (function($, window, undefined) {
 					JQD.util.window_flat();
 					$(this).addClass('window_stack');
 				}).live('mouseenter', function() {
-					$(this).draggable({
+					$(this).die('mouseenter').draggable({
 						// Confine to desktop.
 						// Movable via top bar only.
 						cancel: 'a',
