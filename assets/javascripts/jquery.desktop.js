@@ -198,11 +198,11 @@ var JQD = (function($, window, undefined) {
 						cancel: 'a',
 						containment: 'parent',
 						handle: 'div.window_top'
+					}).resizable({
+						containment: 'parent',
+						minWidth: 400,
+						minHeight: 200
 					});
-				}).resizable({
-					containment: 'parent',
-					minWidth: 400,
-					minHeight: 200
 
 				// Double-click top bar to resize, ala Windows OS.
 				}).find('div.window_top').live('dblclick', function() {
