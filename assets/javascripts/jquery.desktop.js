@@ -122,7 +122,7 @@ var JQD = (function($, window, undefined) {
 						ev.preventDefault();
 						ev.stopPropagation();
 					}
-					else if (url.match('://')) {
+					else {
 						$(this).attr('target', '_blank');
 					}
 				});
