@@ -1,26 +1,26 @@
 .window.ui-draggable-dragging {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)';
 }
 
 .window_full.ui-draggable-dragging {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
 }
 
 #bar_bottom {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
 }
 
 table.data tbody tr td {
-	border-top: 1px solid #eee;
+  border-top: 1px solid #eee;
 }
 
 table.data tbody tr:first-child td {
-	border-top-width: 0;
+  border-top-width: 0;
 }
 
 img {
-	-ms-interpolation-mode: bicubic;
+  -ms-interpolation-mode: bicubic;
 }
