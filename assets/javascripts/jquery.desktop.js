@@ -104,7 +104,9 @@ var JQD = (function($, window, undefined) {
 			desktop: function() {
 				// Cancel mousedown, right-click.
 				$(document).mousedown(function(ev) {
-					if (!$(ev.target).closest('a').length) {
+          var tags = ['a', 'button', 'input', 'select', 'textarea'];
+
+					if (!$(ev.target).closest(tags).length) {
 						JQD.util.clear_active();
 						ev.preventDefault();
 						ev.stopPropagation();
