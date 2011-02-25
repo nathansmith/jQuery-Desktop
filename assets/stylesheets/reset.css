@@ -1,4 +1,4 @@
-/* `XHTML / HTML4 / HTML5 Reset
+/* `XHTML, HTML4, HTML5 Reset
 ----------------------------------------------------------------------------------------------------*/
 
 a,
@@ -13,19 +13,23 @@ b,
 big,
 blockquote,
 body,
+canvas,
 caption,
 center,
 cite,
 code,
 dd,
 del,
+details,
 dfn,
 dialog,
 div,
 dl,
 dt,
 em,
+embed,
 fieldset,
+figcaption,
 figure,
 font,
 footer,
@@ -50,12 +54,18 @@ legend,
 li,
 mark,
 menu,
+meter,
 nav,
 object,
 ol,
+output,
 p,
 pre,
+progress,
 q,
+rp,
+rt,
+ruby,
 s,
 samp,
 section,
@@ -64,6 +74,7 @@ span,
 strike,
 strong,
 sub,
+summary,
 sup,
 table,
 tbody,
@@ -77,7 +88,8 @@ tt,
 u,
 ul,
 var,
-video {
+video,
+xmp {
   border: 0;
   margin: 0;
   padding: 0;
@@ -87,6 +99,27 @@ video {
 html,
 body {
   height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+/*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block;
 }
 
 b,
@@ -102,6 +135,11 @@ strong {
 img {
   font-size: 0;
   vertical-align: middle;
+/*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic;
 }
 
 li {
@@ -122,4 +160,11 @@ caption {
   font-weight: normal;
   vertical-align: top;
   text-align: left;
+}
+
+svg {
+/*
+  For IE9 beta.
+*/
+  overflow: hidden;
 }
