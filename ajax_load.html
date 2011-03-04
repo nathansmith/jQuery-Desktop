@@ -17,29 +17,34 @@ window.top.location = 'http://desktop.sonspring.com/ie.html';
 <![endif]-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+<script>
+  if (!window.jQuery) {
+    document.write(unescape('%3Cscript src="assets/javascripts/jquery.js"%3E%3C/script%3E'));
+    document.write(unescape('%3Cscript src="assets/javascripts/jquery.ui.js"%3E%3C/script%3E'));
+  }
+</script>
 <script src="assets/javascripts/jquery.desktop.js"></script>
 <script>
-jQuery(document).ready(function($) {
-  $('#ajax_load_trigger').click(function() {
-    $(this).unbind();
-    $('body').load('index.html #wrapper', function() {
-      JQD.init.clock();
-      JQD.init.wallpaper();
+  jQuery(document).ready(function($) {
+    $('#ajax_load_trigger').click(function() {
+      $(this).remove();
+      $('body').load('index.html #wrapper', function() {
+        JQD.init.clock();
+        JQD.init.wallpaper();
+      });
+      return false;
     });
-    return false;
   });
-});
-</script>
-<script>
-var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
 
-(function(d, t) {
-  var g = d.createElement(t),
-  s = d.getElementsByTagName(t)[0];
-  g.async = true;
-  g.src = '//www.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g, s);
-})(document, 'script');
+  var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
+
+  (function(d, t) {
+    var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+  })(this.document, 'script');
 </script>
 </head>
 <body>

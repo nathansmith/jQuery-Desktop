@@ -1,11 +1,4 @@
 //
-// Kick things off.
-//
-jQuery(document).ready(function() {
-  JQD.go();
-});
-
-//
 // Namespace - Module Pattern.
 //
 var JQD = (function($, window, undefined) {
@@ -328,3 +321,10 @@ var JQD = (function($, window, undefined) {
   };
 // Pass in jQuery.
 })(jQuery, this);
+
+//
+// Kick things off.
+//
+jQuery(document).ready(function() {
+  JQD.go();
+});

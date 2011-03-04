@@ -1086,17 +1086,23 @@ window.top.location = 'http://desktop.sonspring.com/ie.html';
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+<script>
+  if (!window.jQuery) {
+    document.write(unescape('%3Cscript src="assets/javascripts/jquery.js"%3E%3C/script%3E'));
+    document.write(unescape('%3Cscript src="assets/javascripts/jquery.ui.js"%3E%3C/script%3E'));
+  }
+</script>
 <script src="assets/javascripts/jquery.desktop.js"></script>
 <script>
-var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
+  var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
 
-(function(d, t) {
-  var g = d.createElement(t),
-  s = d.getElementsByTagName(t)[0];
-  g.async = true;
-  g.src = '//www.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g, s);
-})(document, 'script');
+  (function(d, t) {
+    var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+  })(this.document, 'script');
 </script>
 </body>
 </html>
