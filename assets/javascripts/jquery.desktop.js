@@ -1,7 +1,7 @@
 //
 // Namespace - Module Pattern.
 //
-var JQD = (function($, window, undefined) {
+var JQD = (function($, window, document, undefined) {
   // Expose innards of JQD.
   return {
     go: function() {
@@ -320,7 +320,7 @@ var JQD = (function($, window, undefined) {
     }
   };
 // Pass in jQuery.
-})(jQuery, this);
+})(jQuery, this, this.document);
 
 //
 // Kick things off.
