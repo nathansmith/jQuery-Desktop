@@ -232,7 +232,7 @@ var JQD = (function($, window, document, undefined) {
         });
 
         // Show desktop button, ala Windows OS.
-        $('#show_desktop').live('click', function() {
+        $('#show_desktop').live('mousedown', function() {
           // If any windows are visible, hide all.
           if ($('div.window:visible').length) {
             $('div.window').hide();
