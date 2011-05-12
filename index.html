@@ -1084,13 +1084,11 @@ window.top.location = 'http://desktop.sonspring.com/ie.html';
     </a>
   </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
 <script>
-  if (!window.jQuery) {
-    document.write(unescape('%3Cscript src="assets/js/jquery.js"%3E%3C/script%3E'));
-    document.write(unescape('%3Cscript src="assets/js/jquery.ui.js"%3E%3C/script%3E'));
-  }
+  !window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery.js"%3E%3C/script%3E'));
+  !window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jquery.ui.js"%3E%3C/script%3E'));
 </script>
 <script src="assets/js/jquery.desktop.js"></script>
 <script>
