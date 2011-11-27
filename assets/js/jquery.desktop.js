@@ -19,7 +19,9 @@ var JQD = (function($, window, document, undefined) {
       // Initialize the clock.
       //
       clock: function() {
-        if (!$('#clock').length) {
+        var clock = $('#clock');
+
+        if (!clock.length) {
           return;
         }
 
@@ -86,7 +88,7 @@ var JQD = (function($, window, document, undefined) {
         var clock_date = month + ' ' + day + ', ' + year;
 
         // Shove in the HTML.
-        $('#clock').html(clock_time).attr('title', clock_date);
+        clock.html(clock_time).attr('title', clock_date);
 
         // Update every 60 seconds.
         setTimeout(JQD.init.clock, 60000);
@@ -95,8 +97,11 @@ var JQD = (function($, window, document, undefined) {
       // Initialize the desktop.
       //
       desktop: function() {
-        // Cancel mousedown, right-click.
-        $(document).mousedown(function(ev) {
+        // Alias to document.
+        var d = $(document);
+
+        // Cancel mousedown.
+        d.mousedown(function(ev) {
           var tags = ['a', 'button', 'input', 'select', 'textarea'];
 
           if (!$(ev.target).closest(tags).length) {
@@ -104,12 +109,15 @@ var JQD = (function($, window, document, undefined) {
             ev.preventDefault();
             ev.stopPropagation();
           }
-        }).bind('contextmenu', function() {
+        });
+
+        // Cancel right-click.
+        d.on('contextmenu', function() {
           return false;
         });
 
         // Relative or remote links?
-        $('a').live('click', function(ev) {
+        d.on('click', 'a', function(ev) {
           var url = $(this).attr('href');
           this.blur();
 
@@ -123,7 +131,7 @@ var JQD = (function($, window, document, undefined) {
         });
 
         // Make top menus active.
-        $('a.menu_trigger').live('mousedown', function() {
+        d.on('mousedown', 'a.menu_trigger', function() {
           if ($(this).next('ul.menu').is(':hidden')) {
             JQD.util.clear_active();
             $(this).addClass('active').next('ul.menu').show();
@@ -131,20 +139,25 @@ var JQD = (function($, window, document, undefined) {
           else {
             JQD.util.clear_active();
           }
-        }).live('mouseenter', function() {
-          // Transfer focus, if already open.
+        });
+
+        // Transfer focus, if already open.
+        d.on('mouseenter', 'a.menu_trigger', function() {
           if ($('ul.menu').is(':visible')) {
             JQD.util.clear_active();
             $(this).addClass('active').next('ul.menu').show();
           }
         });
 
-        // Desktop icons.
-        $('a.icon').live('mousedown', function() {
+        // Cancel single-click.
+        d.on('mousedown', 'a.icon', function() {
           // Highlight the icon.
           JQD.util.clear_active();
           $(this).addClass('active');
-        }).live('dblclick', function() {
+        });
+
+        // Respond to double-click.
+        d.on('dblclick', 'a.icon', function() {
           // Get the link's target.
           var x = $(this).attr('href');
           var y = $(x).find('a').attr('href');
@@ -158,15 +171,18 @@ var JQD = (function($, window, document, undefined) {
           // Bring window to front.
           JQD.util.window_flat();
           $(y).addClass('window_stack').show();
-        }).live('mouseenter', function() {
-          $(this).die('mouseenter').draggable({
+        });
+
+        // Make icons draggable.
+        d.on('mouseenter', 'a.icon', function() {
+          $(this).off('mouseenter').draggable({
             revert: true,
             containment: 'parent'
           });
         });
 
         // Taskbar buttons.
-        $('#dock a').live('click', function() {
+        d.on('click', '#dock a', function() {
           // Get the link's target.
           var x = $($(this).attr('href'));
 
@@ -181,13 +197,16 @@ var JQD = (function($, window, document, undefined) {
           }
         });
 
-        // Make windows movable.
-        $('div.window').live('mousedown', function() {
+        // Focus active window.
+        d.on('mousedown', 'div.window', function() {
           // Bring window to front.
           JQD.util.window_flat();
           $(this).addClass('window_stack');
-        }).live('mouseenter', function() {
-          $(this).die('mouseenter').draggable({
+        });
+
+        // Make windows draggable.
+        d.on('mouseenter', 'div.window', function() {
+          $(this).off('mouseenter').draggable({
             // Confine to desktop.
             // Movable via top bar only.
             cancel: 'a',
@@ -198,13 +217,15 @@ var JQD = (function($, window, document, undefined) {
             minWidth: 400,
             minHeight: 200
           });
+        });
 
         // Double-click top bar to resize, ala Windows OS.
-        }).find('div.window_top').live('dblclick', function() {
+        d.on('dblclick', 'div.window_top', function() {
           JQD.util.window_resize(this);
+        });
 
         // Double click top bar icon to close, ala Windows OS.
-        }).find('img').live('dblclick', function() {
+        d.on('dblclick', 'div.window_top img', function() {
           // Traverse to the close button, and hide its taskbar button.
           $($(this).closest('div.window_top').find('a.window_close').attr('href')).hide('fast');
 
@@ -216,23 +237,23 @@ var JQD = (function($, window, document, undefined) {
         });
 
         // Minimize the window.
-        $('a.window_min').live('click', function() {
+        d.on('click', 'a.window_min', function() {
           $(this).closest('div.window').hide();
         });
 
         // Maximize or restore the window.
-        $('a.window_resize').live('click', function() {
+        d.on('click', 'a.window_resize', function() {
           JQD.util.window_resize(this);
         });
 
         // Close the window.
-        $('a.window_close').live('click', function() {
+        d.on('click', 'a.window_close', function() {
           $(this).closest('div.window').hide();
           $($(this).attr('href')).hide('fast');
         });
 
         // Show desktop button, ala Windows OS.
-        $('#show_desktop').live('mousedown', function() {
+        d.on('mousedown', '#show_desktop', function() {
           // If any windows are visible, hide all.
           if ($('div.window:visible').length) {
             $('div.window').hide();
@@ -248,7 +269,9 @@ var JQD = (function($, window, document, undefined) {
         $('table.data').each(function() {
           // Add zebra striping, ala Mac OS X.
           $(this).find('tbody tr:odd').addClass('zebra');
-        }).find('tr').live('mousedown', function() {
+        });
+
+        d.on('mousedown', 'table.data tr', function() {
           // Highlight row, ala Mac OS X.
           $(this).closest('tr').addClass('active');
         });
