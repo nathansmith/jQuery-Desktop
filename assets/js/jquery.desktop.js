@@ -102,7 +102,7 @@ var JQD = (function($, window, document, undefined) {
 
         // Cancel mousedown.
         d.mousedown(function(ev) {
-          var tags = ['a', 'button', 'input', 'select', 'textarea'];
+          var tags = ['a', 'button', 'input', 'select', 'textarea', 'tr'];
 
           if (!$(ev.target).closest(tags).length) {
             JQD.util.clear_active();
@@ -272,6 +272,9 @@ var JQD = (function($, window, document, undefined) {
         });
 
         d.on('mousedown', 'table.data tr', function() {
+          // Clear active state.
+          JQD.util.clear_active();
+
           // Highlight row, ala Mac OS X.
           $(this).closest('tr').addClass('active');
         });
