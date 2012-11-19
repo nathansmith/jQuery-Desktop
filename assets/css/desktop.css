@@ -27,7 +27,7 @@ li {
 ----------------------------------------------------------------------------------------------------*/
 
 .abs {
-  position: absolute;
+  position: absolute !important;
   top: auto;
   left: auto;
   right: auto;
