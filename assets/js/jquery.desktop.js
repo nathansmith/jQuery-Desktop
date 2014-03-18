@@ -102,7 +102,7 @@ var JQD = (function($, window, document, undefined) {
 
         // Cancel mousedown.
         d.mousedown(function(ev) {
-          var tags = ['a', 'button', 'input', 'select', 'textarea', 'tr'];
+          var tags = "a,button,input,select,textarea,tr";
 
           if (!$(ev.target).closest(tags).length) {
             JQD.util.clear_active();
