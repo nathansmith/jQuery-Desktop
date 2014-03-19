@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="description" content="JavaScript desktop environment built with jQuery." />
 <title>jQuery Desktop</title>
 <!--[if lt IE 7]>
@@ -1084,17 +1084,21 @@ window.top.location = 'http://desktop.sonspring.com/ie.html';
     </a>
   </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> -->
 <script>
   !window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery.js"%3E%3C/script%3E'));
-  !window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jquery.ui.js"%3E%3C/script%3E'));
+  !window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery.ui.js"%3E%3C/script%3E'));
 </script>
 <script src="assets/js/jquery.desktop.js"></script>
 <script>
   var _gaq = [['_setAccount', 'UA-166674-8'], ['_trackPageview']];
 
   (function(d, t) {
+    if (window.location.hostname !== 'desktop.sonspring.com') {
+      return;
+    }
+
     var g = d.createElement(t),
     s = d.getElementsByTagName(t)[0];
     g.async = true;
